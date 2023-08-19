@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Inicio sesion cliente</title>
+    <script src="/scripts/login"></script>
+    <%- include('../partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+      <main>
+        <div class="h-screen bg-slate-50 flex justify-center items-center w-full">
+            <form action="/login" method="post">
+              <div class="bg-white px-10 py-8 rounded-xl w-screen shadow-md max-w-sm">
+                <img class="h-14 mb-4 mx-auto" src="https://www.synointcdn.com/wp-content/uploads/2019/04/Amazon-Logo-PNG.png" alt="">
+                <div class="space-y-4">
+                  <h1 class="text-center text-2xl font-semibold text-gray-600">Inicio de sesión</h1>
+                  <div>
+                    <label for="email" class="block mb-1 text-gray-600 font-semibold">Email</label>
+                    <input type="email" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" id="email" name="email" required/>
+                  </div>
+                  <div>
+                    <label for="password" class="block mb-1 text-gray-600 font-semibold">Contraseña</label>
+                    <input type="password" class="bg-indigo-50 px-4 py-2 outline-none rounded-md w-full" id="password" name="password" required />
+                  </div>
+                  <div>
+                    <a href="/recovery">¿Has olvidado tu contraseña?</a>
+                  </div>
+                </div>
+                <button class="mt-4 w-full bg-yellow-500 font-semibold py-2 rounded-md  tracking-wide">Iniciar sesión</button>
+              </div>
+            </form>
+          </div>
+      </main>
+
+    <%- include('../partials/footer'); %>
+
+</body>
+</html>

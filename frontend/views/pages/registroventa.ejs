@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Registro Producto</title>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <div class="container" id="contenedorregistro">
+      <div>
+      <h1 class="text-center">Registro de producto</h1>
+    </div>
+      <form action="registroventa" method="put">
+        <div class="mb-3 mt-3" >
+          <label for="producto" class="form-label">Producto</label>
+          <input type="text" class="form-control" id="producto" name="producto">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="subtotalVenta" class="form-label">Subtotal</label>
+          <input type="number" class="form-control" id="nombre"  name="subtotalVenta">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="fecha" class="form-label">Fecha</label>
+          <input type="text" class="form-control" id="descripcion" name="fecha">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="impuesto" class="form-label">Impuesto</label>
+          <input type="number" class="form-control" id="impuesto" name="impuesto">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="cliente" class="form-label">Cliente</label>
+          <input type="text" class="form-control" id="cliente"  name="cliente">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="cliente" class="form-label">vendedor</label>
+          <input type="text" class="form-control" id="cliente"  name="cliente">
+        </div>
+
+        <input type="submit" class="btn btn-primary text-black">
+      </form>
+    </div>
+
+        <%- include('../partials/footer'); %>
+
+</body>
+</html>

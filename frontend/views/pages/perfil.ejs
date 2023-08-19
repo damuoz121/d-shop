@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>perfil</title>
+    <script src="../../public/scripts/login.js"></script>
+    <%- include('../partials/head'); %>
+ 
+
+</head>
+<body>
+
+    
+
+    <% if (rol === 'vendedor') { %>
+        <h1>Bienvenido Vendedor: <%= vendedors.nombre %></h1>
+        <!-- vendedores -->
+    <% } else if (rol === 'cliente') { %>
+        <h1>Bienvenido Cliente: <%= clientes.nombre %></h1>
+        <!-- clientes -->
+    <% } else { %>
+        <h1>Rol desconocido</h1>
+    <% } %>
+
+
+    
+
+
+</body>
+</html>

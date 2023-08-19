@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registro Producto</title>
+    <%- include('../partials/head'); %>
+</head>
+<body>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+    <form action="registroproducto" method="put">
+      <div class="container">
+        <div class="mb-3 mt-3" class="" id="referencia">
+          <label for="referencia" class="form-label">Referencia:</label>
+          <input type="text" class="form-control" id="referencia" placeholder="Introduzca la referencia" name="referencia">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="nombre" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" placeholder="Introduzca el nombre" name="nombre">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="descripcion" class="form-label">Descripcion:</label>
+          <input type="text" class="form-control" id="descripcion" placeholder="Introduzca la descripcion" name="descripcion">
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="precio" class="form-label">Precio:</label>
+          <input type="text" class="form-control" id="precio" placeholder="Introduzca el precio" name="precio">
+        </div>
+        <div class="mb-3">
+          <label for="stock" class="form-label">stock:</label>
+          <input type="number" class="form-control" id="stock" placeholder="Introduzca el stock" name="stock">
+        </div>
+        <div class="mb-3">
+          <label for="hab" class="form-label">habilitado:</label>
+          <input type="text" class="form-control" id="hab" placeholder="Introduzca si esta habilitado" name="habilitado">
+        </div>
+
+        <input type="submit" class="btn btn-primary text-black">
+    </div>
+    </form>
+   
+
+        <%- include('../partials/footer'); %>
+
+</body>
+</html>

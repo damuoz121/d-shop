@@ -424,6 +424,20 @@ app.get('/403', function(req, res, next){
   next(err);
 });
 
+app.get('/500', function(req, res, next){
+  // trigger a generic (500) error
+  next(new Error('keyboard cat!'));
+});
+
+// Error handlers
+
+// Since this is the last non-error-handling
+// middleware use()d, we assume 404, as nothing else
+// responded.
+
+// $ curl http://localhost:3000/notfound
+// $ curl http://localhost:3000/notfound -H "Accept: application/json"
+// $ curl http://localhost:3000/notfound -H "Accept: text/plain"
 
 app.use(function(req, res, next){
   res.status(404);

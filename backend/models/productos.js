@@ -28,29 +28,13 @@ const productos = new bd.Schema({
   },
 
   imagen: {
-    type: String,
-    required: true
+    type: String
   },
 
   habilitado: {
-    type: Boolean,
-    required: true
+    type: String
   }
 
 });
 
-const productsSchema = new bd.Schema({
-  nombre: String,
-  unidadesVendidas: Number,
-  fechaVenta: Date,
-  clienteRegistrado: Boolean
-});
-
-const productoSchema = new bd.Schema({
-  nombre: String,
-  precio: Number,
-  descripcion: String
-  // Otros campos según tus necesidades
-});
-module.exports = bd.model("Productos", productsSchema);
 module.exports = bd.model("Product", productos);

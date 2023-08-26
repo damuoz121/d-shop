@@ -98,13 +98,26 @@ function disminuirCantidad (index) {
   }
 }
 
+function enviarCarritoAlServidor () {
+  const carritoData = {
+    items: carrito, // Esto asume que tu arreglo de carrito se llama "carrito"
+    precioTotal: precioTotal() // Calcula el precio total como lo haces en tu código
+  };
+
+  fetch("/api/enviarCarrito", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(carritoData)
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Carrito enviado al servidor y guardado en MongoDB:", data);
+    })
+    .catch(error => {
+      console.error("Error al enviar el carrito:", error);
+    });
+}
 // Llamamos a la función para que se ejecute
 crearcarrito();
-
-// crear html
-// recorrer el arreglo del carrito para crear los elementos
-// agregar al padre
-
-// crear funcion eliminar del carrito del carrito
-
-// guardar en la cookie

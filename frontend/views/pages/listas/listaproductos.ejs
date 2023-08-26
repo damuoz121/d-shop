@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
+
   <title>Listado de Productos</title>
-  <%- include('../../partials/head'); %>
-</head>
-<style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  </style>
+  <%- include("../../partials/head"); %>
+
 <body>
-  <header>
-    <%- include('../../partials/header'); %>
-</header>
-  <h1>Listado de Productos</h1>
-  
+  <h1 class="text-3xl text-center">Listado de Productos</h1>
+  <button type="button" class="bg-black text-white items-center" data-bs-toggle="modal" data-bs-target="#modaleditar">Añadir producto</button>
   <table>
     <thead>
       <tr>
@@ -43,7 +22,7 @@
           <td><%= products.nombre %></td>
           <td><%= products.precio %></td>
           <td>
-            <button type="button" data-bs-toggle="modal" data-bs-target="#myModal">
+            <button type="button" data-bs-toggle="modal" data-bs-target="#modaleditar">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
               </svg>
@@ -58,29 +37,120 @@
       <% }); %>
 
   </table>
-  <div class="modal" id="myModal">
+  <div class="modal" id="modaleditar">
     <div class="modal-dialog">
       <div class="modal-content">
   
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
-          <button type="button" class="btn btn-danger bg-black" data-bs-dismiss="modal"></button>
+          <h4 class="modal-title">Editar producto</h4>
+          <button type="button" class="" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+          </svg></button>
         </div>
   
         <!-- Modal body -->
         <div class="modal-body">
-          Modal body..
+          <form action="listaproductos" method="put">
+            <div class="container">
+              <div class="mb-3 mt-3" class="" id="referencia">
+                <label for="referencia" class="form-label">Referencia:</label>
+                <input type="text" class="form-control" id="referencia" placeholder="Introduzca la referencia" name="referencia">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Introduzca el nombre" name="nombre">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="descripcion" class="form-label">Descripcion:</label>
+                <input type="text" class="form-control" id="descripcion" placeholder="Introduzca la descripcion" name="descripcion">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="precio" class="form-label">Precio:</label>
+                <input type="text" class="form-control" id="precio" placeholder="Introduzca el precio" name="precio">
+              </div>
+              <div class="mb-3">
+                <label for="stock" class="form-label">stock:</label>
+                <input type="number" class="form-control" id="stock" placeholder="Introduzca el stock" name="stock">
+              </div>
+              <div class="mb-3">
+                <label for="hab" class="form-label">habilitado:</label>
+                <input type="text" class="form-control" id="hab" placeholder="Introduzca si esta habilitado" name="habilitado">
+              </div>
+      
+              <input type="submit" class="btn btn-primary text-black">
+          </div>
+          </form>
         </div>
   
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+          </svg></button>
         </div>
   
       </div>
     </div>
   </div>
+  <div class="modal" id="modalcrear">
+    <div class="modal-dialog">
+      <div class="modal-content">
   
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Añadir producto</h4>
+          <button type="button" class="" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+          </svg></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="listaproductos" method="post">
+            <div class="container">
+              <div class="mb-3 mt-3" class="" id="referencia">
+                <label for="referencia" class="form-label">Referencia:</label>
+                <input type="text" class="form-control" id="referencia" placeholder="" name="referencia">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="" name="nombre">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="descripcion" class="form-label">Descripcion:</label>
+                <input type="text" class="form-control" id="descripcion" placeholder="" name="descripcion">
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="precio" class="form-label">Precio:</label>
+                <input type="text" class="form-control" id="precio" placeholder="Introduzca el precio" name="precio">
+              </div>
+              <div class="mb-3">
+                <label for="stock" class="form-label">stock:</label>
+                <input type="number" class="form-control" id="stock" placeholder="Introduzca el stock" name="stock">
+              </div>
+              <div class="mb-3">
+                <label for="hab" class="form-label">habilitado:</label>
+                <input type="text" class="form-control" id="hab" placeholder="Introduzca si esta habilitado" name="habilitado">
+              </div>
+              <div class="mb-3">
+                <label for="imagen" class="form-label">imagen:</label>
+                <input type="text" class="form-control" id="imagen" placeholder="Introduzca si esta habilitado" name="imagen">
+              </div>
+              <input type="submit" class="btn btn-primary text-black">
+          </div>
+          </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" data-bs-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+          </svg></button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 </body>
 </html>
